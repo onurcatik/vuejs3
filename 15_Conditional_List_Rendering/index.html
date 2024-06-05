@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Conditional List Rendering</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../01_Introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../02_Hello_World/index.html"><strong aria-hidden="true">2.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="../03_Project_Structure/index.html"><strong aria-hidden="true">3.</strong> Project Structure</a></li><li class="chapter-item expanded "><a href="../04_Single_File_Components/index.html"><strong aria-hidden="true">4.</strong> Single File Components</a></li><li class="chapter-item expanded "><a href="../05_Binding_Text/index.html"><strong aria-hidden="true">5.</strong> Binding Text</a></li><li class="chapter-item expanded "><a href="../06_Binding_HTML/index.html"><strong aria-hidden="true">6.</strong> Binding HTML</a></li><li class="chapter-item expanded "><a href="../07_Binding_to_Attributes/index.html"><strong aria-hidden="true">7.</strong> Binding to Attributes</a></li><li class="chapter-item expanded "><a href="../08_Binding_Classes/index.html"><strong aria-hidden="true">8.</strong> Binding Classes</a></li><li class="chapter-item expanded "><a href="../09_Binding_Styles/index.html"><strong aria-hidden="true">9.</strong> Binding Styles</a></li><li class="chapter-item expanded "><a href="../10_v-bind_Shorthand/index.html"><strong aria-hidden="true">10.</strong> v-bind Shorthand</a></li><li class="chapter-item expanded "><a href="../11_Conditional_Rendering_Part_1/index.html"><strong aria-hidden="true">11.</strong> Conditional Rendering (Part 1)</a></li><li class="chapter-item expanded "><a href="../12_Conditional_Rendering_Part_2/index.html"><strong aria-hidden="true">12.</strong> Conditional Rendering (Part 2)</a></li><li class="chapter-item expanded "><a href="../13_List_Rendering/index.html"><strong aria-hidden="true">13.</strong> List Rendering</a></li><li class="chapter-item expanded "><a href="../14_Lists_and_Keys/index.html"><strong aria-hidden="true">14.</strong> Lists and Keys</a></li><li class="chapter-item expanded "><a href="../15_Conditional_List_Rendering/index.html" class="active"><strong aria-hidden="true">15.</strong> Conditional List Rendering</a></li><li class="chapter-item expanded "><a href="../16_Methods/index.html"><strong aria-hidden="true">16.</strong> Methods</a></li><li class="chapter-item expanded "><a href="../17_Event_Handling_Part_1/index.html"><strong aria-hidden="true">17.</strong> Event Handling (Part 1)</a></li><li class="chapter-item expanded "><a href="../18_Event_Handling_Part_2/index.html"><strong aria-hidden="true">18.</strong> Event Handling (Part 2)</a></li><li class="chapter-item expanded "><a href="../19_Form_Handling_Part_1/index.html"><strong aria-hidden="true">19.</strong> Form Handling (Part 1)</a></li><li class="chapter-item expanded "><a href="../20_Form_Handling_Part_2/index.html"><strong aria-hidden="true">20.</strong> Form Handling (Part 2)</a></li><li class="chapter-item expanded "><a href="../21_Modifiers/index.html"><strong aria-hidden="true">21.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="../22_Bonus_Directives/index.html"><strong aria-hidden="true">22.</strong> Bonus Directives</a></li><li class="chapter-item expanded "><a href="../23_Computed_Properties/index.html"><strong aria-hidden="true">23.</strong> Computed Properties</a></li><li class="chapter-item expanded "><a href="../24_Computed_Properties_vs_Methods/index.html"><strong aria-hidden="true">24.</strong> Computed Properties vs Methods</a></li><li class="chapter-item expanded "><a href="../25_Computed_Properties_and_v-for/index.html"><strong aria-hidden="true">25.</strong> Computed Properties and v-for</a></li><li class="chapter-item expanded "><a href="../26_Computed_Setter/index.html"><strong aria-hidden="true">26.</strong> Computed Setter</a></li><li class="chapter-item expanded "><a href="../27_Watchers/index.html"><strong aria-hidden="true">27.</strong> Watchers</a></li><li class="chapter-item expanded "><a href="../28_Immediate_and_Deep_Watchers/index.html"><strong aria-hidden="true">28.</strong> Immediate and Deep Watchers</a></li><li class="chapter-item expanded "><a href="../29_Components/index.html"><strong aria-hidden="true">29.</strong> Components</a></li><li class="chapter-item expanded "><a href="../30_Component_Props/index.html"><strong aria-hidden="true">30.</strong> Component Props</a></li><li class="chapter-item expanded "><a href="../31_Prop_Types_and_Validations/index.html"><strong aria-hidden="true">31.</strong> Prop Types and Validations</a></li><li class="chapter-item expanded "><a href="../32_Non_Prop_Attributes/index.html"><strong aria-hidden="true">32.</strong> Non Prop Attributes</a></li><li class="chapter-item expanded "><a href="../33_Provide_and_Inject/index.html"><strong aria-hidden="true">33.</strong> Provide and Inject</a></li><li class="chapter-item expanded "><a href="../34_Component_Events/index.html"><strong aria-hidden="true">34.</strong> Component Events</a></li><li class="chapter-item expanded "><a href="../35_Validating_Emitted_Events/index.html"><strong aria-hidden="true">35.</strong> Validating Emitted Events</a></li><li class="chapter-item expanded "><a href="../36_Components_and_v-model/index.html"><strong aria-hidden="true">36.</strong> Components and v-model</a></li><li class="chapter-item expanded "><a href="../37_Slots/index.html"><strong aria-hidden="true">37.</strong> Slots</a></li><li class="chapter-item expanded "><a href="../38_Named_Slots/index.html"><strong aria-hidden="true">38.</strong> Named Slots</a></li><li class="chapter-item expanded "><a href="../39_Slots_Props/index.html"><strong aria-hidden="true">39.</strong> Slots Props</a></li><li class="chapter-item expanded "><a href="../40_Component_Styles/index.html"><strong aria-hidden="true">40.</strong> Component Styles</a></li><li class="chapter-item expanded "><a href="../41_Dynamic_Components/index.html"><strong aria-hidden="true">41.</strong> Dynamic Components</a></li><li class="chapter-item expanded "><a href="../42_Keeping_Dynamic_Components_Alive/index.html"><strong aria-hidden="true">42.</strong> Keeping Dynamic Components Alive</a></li><li class="chapter-item expanded "><a href="../43_Teleport_Component/index.html"><strong aria-hidden="true">43.</strong> Teleport Component</a></li><li class="chapter-item expanded "><a href="../44_HTTP_and_Vue/index.html"><strong aria-hidden="true">44.</strong> HTTP and Vue</a></li><li class="chapter-item expanded "><a href="../45_HTTP_GET_Request/index.html"><strong aria-hidden="true">45.</strong> HTTP GET Request</a></li><li class="chapter-item expanded "><a href="../46_HTTP_POST_Request/index.html"><strong aria-hidden="true">46.</strong> HTTP POST Request</a></li><li class="chapter-item expanded "><a href="../47_Lifecycle_Hooks/index.html"><strong aria-hidden="true">47.</strong> Lifecycle Hooks</a></li><li class="chapter-item expanded "><a href="../48_GET_Request_on_Page_Load/index.html"><strong aria-hidden="true">48.</strong> GET Request on Page Load</a></li><li class="chapter-item expanded "><a href="../49_Template_Refs/index.html"><strong aria-hidden="true">49.</strong> Template Refs</a></li><li class="chapter-item expanded "><a href="../50_Reusability_with_Mixins/index.html"><strong aria-hidden="true">50.</strong> Reusability with Mixins</a></li><li class="chapter-item expanded "><a href="../51_Composition_API/index.html"><strong aria-hidden="true">51.</strong> Composition API</a></li><li class="chapter-item expanded "><a href="../52_Replacing_data_with_ref/index.html"><strong aria-hidden="true">52.</strong> Replacing data with ref</a></li><li class="chapter-item expanded "><a href="../53_Replacing_data_with_reactive/index.html"><strong aria-hidden="true">53.</strong> Replacing data with reactive</a></li><li class="chapter-item expanded "><a href="../54_Reactivity_and_toRefs/index.html"><strong aria-hidden="true">54.</strong> Reactivity and toRefs</a></li><li class="chapter-item expanded "><a href="../55_Replacing_methods/index.html"><strong aria-hidden="true">55.</strong> Replacing methods</a></li><li class="chapter-item expanded "><a href="../56_v-model_and_Composition_API/index.html"><strong aria-hidden="true">56.</strong> v-model and Composition API</a></li><li class="chapter-item expanded "><a href="../57_Replacing_Computed_Properties/index.html"><strong aria-hidden="true">57.</strong> Replacing Computed Properties</a></li><li class="chapter-item expanded "><a href="../58_Replacing_Watchers_Part_1/index.html"><strong aria-hidden="true">58.</strong> Replacing Watchers (Part 1)</a></li><li class="chapter-item expanded "><a href="../59_Replacing_Watchers_Part_2/index.html"><strong aria-hidden="true">59.</strong> Replacing Watchers (Part 2)</a></li><li class="chapter-item expanded "><a href="../60_Replacing_Provide_Inject/index.html"><strong aria-hidden="true">60.</strong> Replacing Provide/Inject</a></li><li class="chapter-item expanded "><a href="../61_Replacing_Lifecycle_Hooks/index.html"><strong aria-hidden="true">61.</strong> Replacing Lifecycle Hooks</a></li><li class="chapter-item expanded "><a href="../62_Template_Refs_and_Composition_API/index.html"><strong aria-hidden="true">62.</strong> Template Refs and Composition API</a></li><li class="chapter-item expanded "><a href="../63_Props_and_Composition_API/index.html"><strong aria-hidden="true">63.</strong> Props and Composition API</a></li><li class="chapter-item expanded "><a href="../64_Custom_Events_and_Composition_API/index.html"><strong aria-hidden="true">64.</strong> Custom Events and Composition API</a></li><li class="chapter-item expanded "><a href="../65_Reusability_with_Composition_API/index.html"><strong aria-hidden="true">65.</strong> Reusability with Composition API</a></li><li class="chapter-item expanded "><a href="../66_Deploying_Vue_Applications/index.html"><strong aria-hidden="true">66.</strong> Deploying Vue Applications</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="conditional-list-rendering"><a class="header" href="#conditional-list-rendering">Conditional List Rendering</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../14_Lists_and_Keys/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../16_Methods/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../14_Lists_and_Keys/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../16_Methods/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
